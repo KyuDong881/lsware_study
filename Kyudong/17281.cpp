@@ -6,7 +6,7 @@
 using namespace std;
 
 int inning_player[51][10];
-int base[4];
+int base[4]; //홈, 1루,2루 3루
 int N;
 int ans = INT_MIN;
 
@@ -22,7 +22,7 @@ void initbase()
 
 void playgame()
 {
-	int score = 0;
+	int score = 0;//temp
 	int start_player = 1;
 
 	initbase();
@@ -31,7 +31,7 @@ void playgame()
 		int outcount = 0;
 		bool next_inning = false;
 		initbase();
-
+		//이닝당 반복문
 		while (1)
 		{
 			for (int playernum = start_player; playernum < 10; playernum++)
@@ -108,17 +108,17 @@ void playgame()
 					}
 					score++;
 				}
-
+				//다음이닝 넘어갈때 순서가 이전이닝 마지막선수 다음선수부터 시작해야되서
 				if (outcount == 3)
 				{
 					start_player = playernum + 1;
 					if (start_player == 10) start_player = 1;
 					next_inning = true;
-					break;
+					break;//for문 깨주고
 				}
 
 			}
-			if (next_inning == true) break;
+			if (next_inning == true) break; //while문깨주고
 			start_player = 1;
 
 		}
@@ -126,7 +126,7 @@ void playgame()
 	ans = max(ans, score);
 }
 
-void makeorder(int count)
+void makeorder(int count)//dfs 선수들 순서 정해주는거
 {
 	if (count == 10)
 	{
@@ -140,7 +140,7 @@ void makeorder(int count)
 		Select[i] = true;
 		order[i] = count;
 		makeorder(count + 1);
-		Select[i] = false;
+		Select[i] = false; 
 	}
 
 }
