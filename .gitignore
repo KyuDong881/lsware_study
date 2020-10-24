@@ -1,0 +1,11 @@
+# clangd cache
+.cache/
+compile_commands.txt
+
+# CMake build files
+CMakeLists.txt
+CMakeFiles/
+CMakeCache.txt
+
+# Binary files
+solution
