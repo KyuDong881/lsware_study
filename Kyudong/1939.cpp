@@ -3,8 +3,6 @@
 #include<algorithm>
 #include <vector>
 #include <queue>
-
-
 #pragma warning(disable:4996)
 
 using namespace std;
