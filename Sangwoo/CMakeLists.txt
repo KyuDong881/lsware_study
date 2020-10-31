@@ -12,7 +12,7 @@ set(SOURCES
 
 add_executable(solution ${SOURCES})
 
-target_compile_options(solution PRIVATE -O2 -Wall)
+target_compile_options(solution PRIVATE -Wall -Wextra -Werror)
 target_compile_definitions(solution PRIVATE ONLINE_JUDGE BOJ)
 
 target_link_options(solution PRIVATE -static)
