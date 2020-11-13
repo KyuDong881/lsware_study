@@ -34,15 +34,23 @@ int cal_distance()
 	return ans_tmp;
 }
 
-void select_chicken(int idx,int cnt)
+void select_chicken(int start,int cnt)
 {
 	if (cnt == m)
 	{
 		ans = min(ans, cal_distance());
 		return;
 	}
-
-	for (int i = idx; i < chicken_num; i++)
+	/*for (int i = 0; i < chicken_num; i++)
+	{
+		if (check[i] == true) continue;
+		check[i] = true;
+		v.push_back(chicken[i]);
+		select_chicken(i, cnt + 1);
+		v.pop_back();
+		check[i] = false;
+	}*/ //순열로 푸니까 시간초과 뜸 
+	for (int i = start; i < chicken_num; i++)
 	{
 		if (check[i] == true) continue;
 		check[i] = true;
